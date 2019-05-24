@@ -1,0 +1,16 @@
+#! /bin/sh
+#
+# run control file for channels-dvr
+#
+#
+
+USER=$(id -n -u)
+GROUP=$(id -n -g)
+PRGNAM=channels-dvr
+BIN=/opt/channels-dvr/channels-dvr
+CONF=
+ARGS=-c $CONF -u $USER -g $GROUP
+PID=/var/run/channels-dvr.pid
+
+channels-dvr_start()
+{
