@@ -26,7 +26,7 @@ PRGNAM=channels-dvr
 VERSION=${VERSION:-2019.04.22.2317}	
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
-BASEDIR=${BASEDIR:-/opt}
+BASEDIR=${BASEDIR:-opt}
 RUNUSER=${RUNUSER:-channels}
 
 if [ -z "$ARCH" ]; then
@@ -55,18 +55,18 @@ set -e
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 
-mv -fv $CWD/ffmpeg-linux-$ARCH $PKG/$BASEDIR/$PGRGNAM/$VERSION/ffmpeg 
-mv -fv $CWD/ffprobe-linux-$ARCH $PKG/$BASEDIR/$PGRGNAM/$VERSION/ffprobe 
-mv -fv $CWD/comskip-linux-$ARCH $PKG/$BASEDIR/$PGRGNAM/$VERSION/comskip 
-mv -fv $CWD/channels-dvr-linux-$ARCH $PKG/$BASEDIR/$PGRGNAM/$VERSION/channels-dvr 
+mv -fv $CWD/ffmpeg-linux-$ARCH $PKG/$BASEDIR/$PRGNAM/$VERSION/ffmpeg 
+mv -fv $CWD/ffprobe-linux-$ARCH $PKG/$BASEDIR/$PRGNAM/$VERSION/ffprobe 
+mv -fv $CWD/comskip-linux-$ARCH $PKG/$BASEDIR/$PRGNAM/$VERSION/comskip 
+mv -fv $CWD/channels-dvr-linux-$ARCH $PKG/$BASEDIR/$PRGNAM/$VERSION/channels-dvr 
 
-chmod +x $PKG/$BASEDIR/$PGRGNAM/$VERSION/*
-ln -nsf $PKG/$BASEDIR/$PGRGNAM/$VERSION $PKG/$BASEDIR/$PGRGNAM/latest
+chmod +x $PKG/$BASEDIR/$PRGNAM/$VERSION/*
+ln -nsf $PKG/$BASEDIR/$PRGNAM/$VERSION $PKG/$BASEDIR/$PRGNAM/latest
 
 # Create configuration file based on variables passed
 mkdir -p $PKG/etc
-echo "BASEDIR=$BASEDIR" >> $PKG/etc/default/$PGRGNAM.conf
-echo "RUNUSER=$RUNSER" >> $PKG/etc/default/$PGRGNAM.conf
+echo "BASEDIR=$BASEDIR" >> $PKG/etc/default/$PRGNAM.conf
+echo "RUNUSER=$RUNSER" >> $PKG/etc/default/$PRGNAM.conf
 
 # Create and move Init Daemon file
 mkdir -p $PKG/etc/rc.d

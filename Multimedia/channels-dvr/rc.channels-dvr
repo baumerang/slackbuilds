@@ -22,33 +22,33 @@
 
 set -e
 
-PRGNM=channels-dvr
+PRGNAM=channels-dvr
 RUN_USER=${RUN_USER:-channels}
 BASEPATH=${BASEPATH:-/opt/channels-dvr}
-DAEMON=$BASEPATH/latest/$PRGNM
-LOGFILE=$BASEPATH/data/$PRGNM.log
-CONF=/etc/$PRGNM.conf
+DAEMON=$BASEPATH/latest/$PRGNAM
+LOGFILE=$BASEPATH/data/$PRGNAM.log
+CONF=/etc/$PRGNAM.conf
 
 . $CONF
 
 start() {
-  PIDOF=$(pidof "$PRGNM")
+  PIDOF=$(pidof "$PRGNAM")
     if [ -z "$PIDOF" ]; then
         echo -n "Starting $PRGNAM: " 
 	/bin/su -s /bin/sh -l $RUN_USER -c 'exec $DAEMON >> $LOGFILE 2>&1 &'
     else
-      echo "$PRGNM is already active (PID: $PIDOF)."
+      echo "$PRGNAM is already active (PID: $PIDOF)."
       exit 1
     fi
 }
 
 stop() {
-  PIDOF=$(pidof "$PRGNM")
+  PIDOF=$(pidof "$PRGNAM")
   if [ -z "$PIODF" ]; then
-    echo "$PRGNM is not running..."
+    echo "$PRGNAM is not running..."
     exit 1
   else
-    echo -n "Stopping $PRGNM: "
+    echo -n "Stopping $PRGNAM: "
 
     if [ -n "$PIDOF" ]; then
       kill -3 $PIDOF
@@ -65,9 +65,9 @@ restart() {
 
 status() {
   if [ -s $PIDOF ]; then
-    echo  "$PRGNM is running (PID: $PIDOF)."
+    echo  "$PRGNAM is running (PID: $PIDOF)."
   else
-    echo "$PRGNM is not running..."
+    echo "$PRGNAM is not running..."
   fi
 }
 
