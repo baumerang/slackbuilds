@@ -27,7 +27,6 @@ RUN_USER=${RUN_USER:-plex}
 BASEPATH=${BASEPATH:-/opt/channels-dvr}
 DAEMON=$BASEPATH/latest/$PRGNAM
 LOGFILE=$BASEPATH/data/$PRGNAM.log
-CONF=/etc/default/$PRGNAM.conf
 
 . $CONF
 
