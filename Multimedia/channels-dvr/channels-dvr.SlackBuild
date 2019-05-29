@@ -2,7 +2,7 @@
 
 # Slackware build script for channels-dvr
 
-# Copyright 2019 Justin Teague Houston, U.S.
+# Copyright 2019 Justin Teague Houston, US
 # All rights reserved.
 #
 # Redistribution and use of this script, with or without modification, is
@@ -23,57 +23,50 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 PRGNAM=channels-dvr
-VERSION=${VERSION:-2019.04.22.2317}	# replace with version of program
+VERSION=${VERSION:-2019.04.22.2317}	
 BUILD=${BUILD:-1}
-TAG=${TAG:-_SBo}		# the "_SBo" is required
+TAG=${TAG:-_SBo}
 BASEDIR=${BASEDIR:-/opt}
 RUNUSER=${RUNUSER:-channels}
 
-# Automatically determine the architecture we're building on:
 if [ -z "$ARCH" ]; then
   case "$( uname -m )" in
     i?86) ARCH=i486 ;;
     arm*) ARCH=arm ;;
-    # Unless $ARCH is already set, use uname -m for all other archs:
        *) ARCH=$( uname -m ) ;;
   esac
 fi
 
 CWD=$(pwd)
-TMP=${TMP:-/tmp/SBo}	# For consistency's sake, use this
+TMP=${TMP:-/tmp/SBo}	
 PKG=$TMP/package-$PRGNAM
-OUTPUT=${OUTPUT:-/tmp}	# Drop the package in /tmp
+OUTPUT=${OUTPUT:-/tmp}	
 
-if [ "$arch" = "amd64" ]; then
+if [ "$ARCH" = "amd64" ]; then
   arch="x86_64"
-elif [ "$arch" = "armv8l" ]; then
+elif [ "$ARCH" = "armv8l" ]; then
   arch="armv7l"
-elif [ "$arch" = "aarch64" ]; then
+elif [ "$ARCH" = "aarch64" ]; then
   arch="arm64"
 fi
 
-set -e # Exit on most errors
+set -e 
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 
-wget -O $PKG/$BASEDIR/$PRGNM/$VERSION/linux-$ARCH.sha256 https://channels-dvr.s3.amazonaws.com/$VERSION/linux-$ARCH.sha256 
+mv -fv $CWD/ffmpeg-linux-$ARCH $PKG/$BASEDIR/$PGRGNAM/$VERSION/ffmpeg 
+mv -fv $CWD/ffprobe-linux-$ARCH $PKG/$BASEDIR/$PGRGNAM/$VERSION/ffprobe 
+mv -fv $CWD/comskip-linux-$ARCH $PKG/$BASEDIR/$PGRGNAM/$VERSION/comskip 
+mv -fv $CWD/channels-dvr-linux-$ARCH $PKG/$BASEDIR/$PGRGNAM/$VERSION/channels-dvr 
 
-wget -O $PKG/$BASEDIR/$PRGNM/$VERSION/ffmpeg https://channels-dvr.s3.amazonaws.com/$VERSION/ffmpeg-linux-$ARCH
-
-wget -O $PKG/$BASEDIR/$PRGNM/$VERSION/ffprobe https://channels-dvr.s3.amazonaws.com/$VERSION/ffprobe-linux-$ARCH
-
-wget -O $PKG/$BASEDIR/$PRGNM/$VERSION/comskip https://channels-dvr.s3.amazonaws.com/$VERSION/comskip-linux-$ARCH
-
-wget -O $PKG/$BASEDIR/$PRGNM/$VERSION/channels-dvr https://channels-dvr.s3.amazonaws.com/$VERSION/channels-dvr-linux-$ARCH
-
-chmod +x $PKG/$BASEDIR/$PRGNM/$VERSION/*
-ln -nsf $PKG/$BASEDIR/$PRGNM/$VERSION $PKG/$BASEDIR/$PRGNM/latest
+chmod +x $PKG/$BASEDIR/$PGRGNAM/$VERSION/*
+ln -nsf $PKG/$BASEDIR/$PGRGNAM/$VERSION $PKG/$BASEDIR/$PGRGNAM/latest
 
 # Create configuration file based on variables passed
 mkdir -p $PKG/etc
-echo "BASEDIR=$BASEDIR" >> $PKG/etc/$PRGNM.conf
-echo "RUNUSER=$RUNSER" >> $PKG/etc/$PRGNM.conf
+echo "BASEDIR=$BASEDIR" >> $PKG/etc/default/$PGRGNAM.conf
+echo "RUNUSER=$RUNSER" >> $PKG/etc/default/$PGRGNAM.conf
 
 # Create and move Init Daemon file
 mkdir -p $PKG/etc/rc.d
