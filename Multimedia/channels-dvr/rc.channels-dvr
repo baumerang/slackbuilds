@@ -28,8 +28,6 @@ BASEPATH=${BASEPATH:-/opt/channels-dvr}
 DAEMON=$BASEPATH/latest/$PRGNAM
 LOGFILE=$BASEPATH/data/$PRGNAM.log
 
-. $CONF
-
 start() {
   PIDOF=$(pidof "$PRGNAM")
     if [ -z "$PIDOF" ]; then
