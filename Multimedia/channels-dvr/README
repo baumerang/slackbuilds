@@ -1,0 +1,4 @@
+Default user is channels and defualt location is /opt. To change these pass the following to the script:
+
+RUNUSER=runuser
+BASEDIR=base-directory
