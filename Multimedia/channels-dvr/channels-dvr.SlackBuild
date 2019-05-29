@@ -53,7 +53,7 @@ fi
 set -e 
 
 rm -rf $PKG
-mkdir -p $TMP $PKG $OUTPUT
+mkdir -p $TMP $PKG/$BASEDIR/$PRGNAM/$VERSION $OUTPUT
 
 mv -fv $CWD/ffmpeg-linux-$ARCH $PKG/$BASEDIR/$PRGNAM/$VERSION/ffmpeg 
 mv -fv $CWD/ffprobe-linux-$ARCH $PKG/$BASEDIR/$PRGNAM/$VERSION/ffprobe 
