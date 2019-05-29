@@ -23,7 +23,7 @@
 set -e
 
 PRGNAM=channels-dvr
-RUN_USER=${RUN_USER:-plex}
+RUN_USER=${RUN_USER:-channels}
 BASEPATH=${BASEPATH:-/opt/channels-dvr}
 DAEMON=$BASEPATH/latest/$PRGNAM
 LOGFILE=$BASEPATH/data/$PRGNAM.log
@@ -34,7 +34,7 @@ CONF=/etc/default/$PRGNAM.conf
 start() {
   PIDOF=$(pidof "$PRGNAM")
     if [ -z "$PIDOF" ]; then
-        echo -n "Starting $PRGNAM... " 
+        echo -n "Starting $PRGNAM: " 
 	/bin/su -s /bin/sh -l $RUN_USER -c 'exec $DAEMON >> $LOGFILE 2>&1 &'
     else
       echo "$PRGNAM is already active (PID: $PIDOF)."
@@ -86,3 +86,4 @@ status)
 esac
 
 exit 1
+
