@@ -6,14 +6,13 @@
 # customary to leave one space after the ':' except on otherwise blank lines.
 
        |-----handy-ruler------------------------------------------------------|
-appname: appname (short description of app)
-appname:
-appname: Long description of appname, wrapped at 71 characters *after* the
-appname: colon following "appname" (and the 'handy ruler' should start at
-appname: that colon and be exactly 71 characters long).
-appname: If there is room, there might be a link to the homepage of the
-appname: application on one of these lines, but it's not necessary.
-appname:
-appname: The maximum number of lines prefixed by "appname:" is 11.
-appname: Lines without any other text should *not* have a space after the :
-appname:
+channels-dvr: channels-dvr (flexible, standalone DVR server)
+channels-dvr:
+channels-dvr: Channels DVR Server runs on your computer or NAS at home. 
+channels-dvr: There's no cloud to worry about. Your recordings and shows will
+channels-dvr: always be available. Simply install Channels DVR Server on a
+channels-dvr: device and Channels will magically see it from any TV or device
+channels-dvr: you own. As a Channels Plus <https://getchannels.com/plus/>
+channels-dvr: subscriber, your first step is to install Channels DVR Server to
+channels-dvr: let it power your new TV watching experience. Learn more at:
+channels-dvr: https://getchannels.com/plus/
