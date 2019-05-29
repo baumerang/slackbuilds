@@ -64,7 +64,7 @@ chmod +x $PKG/$BASEDIR/$PRGNAM/$VERSION/*
 ln -nsf $PKG/$BASEDIR/$PRGNAM/$VERSION $PKG/$BASEDIR/$PRGNAM/latest
 
 # Create configuration file based on variables passed
-mkdir -p $PKG/etc
+mkdir -p $PKG/etc/default
 echo "BASEDIR=$BASEDIR" >> $PKG/etc/default/$PRGNAM.conf
 echo "RUNUSER=$RUNSER" >> $PKG/etc/default/$PRGNAM.conf
 
