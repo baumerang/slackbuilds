@@ -28,7 +28,7 @@ VERSION=${VERSION:-6.1.0.407}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 
-ARCH=$ARCH:-$(uname -m)
+ARCH=${ARCH:-$(uname -m)}
 
 case "$ARCH" in 
   i?86) DEBARCH="i386" ; LIBDIRSUFFIX="" ; ARCH=i386 ;;
