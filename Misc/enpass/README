@@ -2,3 +2,7 @@ Enpass is a multiplatform password manager keeping your passwords across
 Linux, Winows, MacOS, iOS, Android, and browsers.
 
 Home https://www.enpass.io/
+
+If browser fails to open Enpass after synchronization service has been authenticated - run this command (as regular user) and try again:
+
+# xdg-mime default enpass.desktop x-scheme-handler/enpassauth
