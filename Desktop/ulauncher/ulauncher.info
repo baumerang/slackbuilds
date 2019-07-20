@@ -1,7 +1,7 @@
 PRGNAM="Ulauncher"
 VERSION="5.3.0-beta1""
 HOMEPAGE="https://ulauncher.io""
-DOWNLOAD="https://github.com/Ulauncher/Ulauncher/releases/download/5.2.0-beta1.tar.gz"
+DOWNLOAD="https://github.com/Ulauncher/Ulauncher/releases/download/5.3.0-beta1/ulauncher_5.3.0.beta1.tar.gz"
 MD5SUM="md5sum(s) of the source tarball(s) defined in DOWNLOAD"
 DOWNLOAD_x86_64=""
 MD5SUM_x86_64=""
